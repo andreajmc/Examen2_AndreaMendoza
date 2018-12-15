@@ -9,6 +9,8 @@ using std::ifstream;
 
 #include <string>
 #include <fstream>
+#include <string>
+#include <fstream>
 
 #include <vector>
 using std::vector;
@@ -18,15 +20,20 @@ using std::string;
 
 #include "LinkedList.h"
 
-void recorrerLista(LinkedList*, User*);
-
 
 int main() {
     int resp = 0;
     string un;
     string pw;
+    vector<User*> users;
     // ofstream alumnosW("Users.pndr", std::ios::binary);
     LinkedList* list = new LinkedList();
+    ifstream UsersRead("Users.dat", std::ios::binary);
+    while(UsersRead.eof()) {
+        User* temp = new User();
+        temp->read(UsersRead);
+    }
+    UsersRead.close();
     while (resp != 3) {
         cout<<endl<<endl<<" ________________________________________" <<endl
         <<"|                                        |"<<endl
@@ -52,7 +59,6 @@ int main() {
             if (list->getInicio() == 0) {
                 cout<<endl<<"No hay usuarios creados. ¡Crea una cuenta ahora!"<<endl<<endl;
             } else {
-                cout<<list->getInicio()->getData()->toString();
                 if (list->getInicio()->getData()->getUsername() == un && list->getInicio()->getData()->getPw() == pw) {
                     currentUser = list->getInicio()->getData();
                     access = true;
@@ -93,76 +99,78 @@ int main() {
                         Node* test = list->getInicio();
                         User* amigo = nullptr;
                         string user;
-                        cout<<endl<<endl<<"-- USUARIOS DISPONIBLES --"<<endl<<endl;
-                        if (list->getInicio() == nullptr) {
+                        cout<<endl<<endl<<"-- USUARIOS DISPONIBLES --"<<endl<<"Nombre Completo (edad / género / username)"<<endl<<endl;
+                        if (list->getInicio()->getNext() == nullptr) {
                             cout<<endl<<"No hay usuarios disponibles."<<endl<<endl;
                         } else {
-                            bool amiguis = true;
                             while (test != nullptr) {
-                                for (int i = 0; i < currentUser->getContacts().size(); ++i) {
-                                    if (test->getData()->getUsername() == currentUser->getContacts().at(i)->getUsername()) {
-                                        amiguis = true;
-                                        break;
-                                    } else {
-                                        amiguis = false;
+                                if (currentUser->getContacts().empty()) {
+                                    cout << endl << "No hay usuarios por agregar." << endl;
+                                } else {
+                                    for (int i = 0; i < currentUser->getContacts().size(); ++i) {
+                                        if (test->getData()->getUsername() ==
+                                            currentUser->getContacts().at(i)->getUsername()) {
+                                        } else if (i == currentUser->getContacts().size()-1){
+                                            cout << "-; " << test->getData()->toString() << endl;
+                                        }
                                     }
+                                    test = test->getNext();
                                 }
-                                if (!amiguis){
-                                    cout<<"-; "<<test->getData()->toString()<<endl;
-                                }
-                                test = test->getNext();
-                            }
-                            cout<<endl<<endl<<"Ingrese el username de la persona que desea agregar: ";
-                            cin>>user;
-                            if (list->getInicio()->getData()->getUsername() == user) {
-                                currentUser->addFriend(list->getInicio()->getData());
-                                list->getInicio()->getData()->addFriend(currentUser);
-                                cout<<endl<<endl<<"¡Amigo agregado exitósamente!";
-                            } else if (list->getInicio()->getNext() != nullptr) {
-                                target = list->getInicio()->getNext();
-                                while (target != nullptr) {
-                                    if(target->getData()->getUsername() == un) {
-                                        currentUser->addFriend(target->getData());
-                                        target->getData()->addFriend(currentUser);
-                                        cout<<endl<<endl<<"¡Amigo agregado exitósamente!";
-                                        break;
-                                    } else {
-                                        target = target->getNext();
+                                cout << endl << endl << "Ingrese el username de la persona que desea agregar: ";
+                                cin >> user;
+                                if (list->getInicio()->getData()->getUsername() == user) {
+                                    currentUser->addFriend(list->getInicio()->getData());
+                                    list->getInicio()->getData()->addFriend(currentUser);
+                                    cout << endl << endl << "¡Amigo agregado exitósamente!";
+                                } else if (list->getInicio()->getNext() != nullptr) {
+                                    target = list->getInicio()->getNext();
+                                    while (target != nullptr) {
+                                        if (target->getData()->getUsername() == un) {
+                                            currentUser->addFriend(target->getData());
+                                            target->getData()->addFriend(currentUser);
+                                            cout << endl << endl << "¡Amigo agregado exitósamente!";
+                                            break;
+                                        } else {
+                                            target = target->getNext();
+                                        }
                                     }
+                                } else {
+                                    cout << endl << "Ha ingresado un username erróneo." << endl;
                                 }
-                            } else {
-                                cout<<endl<<"Ha ingresado un username erróneo."<<endl;
                             }
                         }
                     } else if (resp2 == 2) {
                         Node* test = list->getInicio();
                         User* amigo = nullptr;
                         string user;
-                        cout<<endl<<endl<<"-- SUS AMIGOS --"<<endl<<endl;
-                        for (auto item : currentUser->getContacts()) {
-                            cout<<item->toString()<<endl;
-                        }
-
-                        cout<<endl<<endl<<"Ingrese el username de la persona a la que desea eliminar: ";
-                        cin>>user;
-                        if (list->getInicio()->getData()->getUsername() == user) {
-                            currentUser->unFriended(list->getInicio()->getData());
-                            list->getInicio()->getData()->unFriended(currentUser);
-                            cout<<endl<<endl<<"¡Amigo eliminado exitósamente! :(";
-                        } else if (list->getInicio()->getNext() != nullptr) {
-                            target = list->getInicio()->getNext();
-                            while (target != nullptr) {
-                                if(target->getData()->getUsername() == user) {
-                                    currentUser->unFriended(target->getData());
-                                    target->getData()->unFriended(currentUser);
-                                    cout<<endl<<endl<<"¡Amigo eliminado exitósamente! :(";
-                                    break;
-                                } else {
-                                    target = target->getNext();
-                                }
-                            }
+                        if (currentUser->getContacts().empty()){
+                            cout<<endl<<"No tienes amigos por eliminar."<<endl;
                         } else {
-                            cout<<endl<<"Ha ingresado un username erróneo."<<endl;
+                            cout << endl << endl << "-- SUS AMIGOS --" <<endl<<"Nombre Completo (edad / género / username)"<<endl << endl;
+                            for (auto item : currentUser->getContacts()) {
+                                cout << item->toString() << endl;
+                            }
+                            cout << endl << endl << "Ingrese el username de la persona a la que desea eliminar: ";
+                            cin >> user;
+                            if (list->getInicio()->getData()->getUsername() == user) {
+                                currentUser->unFriended(list->getInicio()->getData());
+                                list->getInicio()->getData()->unFriended(currentUser);
+                                cout << endl << endl << "¡Amigo eliminado exitósamente! :(";
+                            } else if (list->getInicio()->getNext() != nullptr) {
+                                target = list->getInicio()->getNext();
+                                while (target != nullptr) {
+                                    if (target->getData()->getUsername() == user) {
+                                        currentUser->unFriended(target->getData());
+                                        target->getData()->unFriended(currentUser);
+                                        cout << endl << endl << "¡Amigo eliminado exitósamente! :(";
+                                        break;
+                                    } else {
+                                        target = target->getNext();
+                                    }
+                                }
+                            } else {
+                                cout << endl << "Ha ingresado un username erróneo." << endl;
+                            }
                         }
                     } else if (resp2 == 3) { // Sugerencias
                         cout<<"-- AMIGOS SUGERIDOS --"<<endl<<endl;
@@ -195,13 +203,17 @@ int main() {
                         cout<<"-- LISTA GENERAL DE USUARIOS --"<<endl<<endl;
                         target = list->getInicio();
                         while(target != nullptr) {
-                            cout<<target->getData()->toString();
+                            cout<<"-; "<<target->getData()->toString()<<endl;
                             target = target->getNext();
                         }
                     } else if (resp2 == 5) { // ver amigos
-                        cout<<"-- SUS AMIGOS --"<<endl<<endl;
-                        for (auto item : currentUser->getContacts()) {
-                            cout<<item->toString()<<endl;
+                        if (currentUser->getContacts().empty()) {
+                            cout << endl << "No tenés amigos porque eres un loser." << endl;
+                        } else {
+                            cout<<"-- SUS AMIGOS --"<<endl<<endl;
+                            for (int i = 0; i < currentUser->getContacts().size(); ++i) {
+                                cout<<"-; "<<currentUser->getContacts().at(i)->toString()<<endl;
+                            }
                         }
                     }
                 } // fin while menu2
@@ -211,9 +223,10 @@ int main() {
             }
         } else if (resp == 2) {
             string name, username, passw, gender;
-            int age;
+            int age, sizeInt;
             cout<<endl<<"Ingrese su nombre completo: ";
-            cin>>name;
+            getline(cin, name);
+            getline(cin, name);
             cout<<endl<<"Ingrese su edad: ";
             cin>>age;
             cout<<endl<<"Ingrese su username: ";
@@ -223,12 +236,37 @@ int main() {
             cout<<endl<<"Ingrese su género (F/M): ";
             cin>>gender;
             gender = gender.at(0);
-            if (list->getInicio() == nullptr) {
-                list->setInicio(new Node(new User(name,username,passw,age,gender)));
-            } else {
-                list->push(new User(name, username,passw,age,gender));
+            cout<<endl<<"¿Cuántos interéses desea ingresar a su perfil? "<<endl;
+            cin>>sizeInt;
+            vector<string> interests;
+            for (int i = 0; i < sizeInt; ++i) {
+                string temp;
+                cout<<endl<<"Escribe tu interés: ";
+                getline(cin, temp);
+                getline(cin, temp);
+                interests.push_back(temp);
             }
+            if (list->getInicio() == nullptr) {
+                list->setInicio(new Node(new User(name,username,passw,age,gender, interests)));
+            } else {
+                list->push(new User(name, username,passw,age,gender, interests));
+            }
+            ofstream usersBF("Users.dat", std::ios::binary);
+            User* A1 = new User(name, username,passw,age,gender);
+            A1->write(usersBF);
+            usersBF.close();
             cout<<endl<<"¡Usuario creado exitósamente!"<<endl;
         }
     }
+
+    Node* temp = list->getInicio();
+    Node* temp2 = nullptr;
+
+    while (temp != nullptr) {
+        delete temp->getData();
+        temp = temp->getNext();
+        temp2 = temp;
+        delete temp2;
+    }
 }
+

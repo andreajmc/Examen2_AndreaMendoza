@@ -27,4 +27,5 @@ Node *LinkedList::getInicio() const {
 
 void LinkedList::setInicio(Node *inicio) {
     LinkedList::inicio = inicio;
+    last = inicio;
 }

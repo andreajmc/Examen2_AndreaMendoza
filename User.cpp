@@ -3,6 +3,27 @@
 //
 
 #include "User.h"
+#include <fstream>
+using std::ifstream;
+using std::ostream;
+
+
+
+User::User(const string &name, const string &username, const string &pw, int age, const string &gender,
+           const vector<string> &interests) : name(name), username(username), pw(pw), age(age), gender(gender),
+                                              interests(interests) {
+    vector<User*> amiwis;
+    contacts = amiwis;
+}
+
+User::User(const string &name, const string &username, const string &pw, int age, const string &gender) : name(name),
+                                                                                                          username(
+                                                                                                                  username),
+                                                                                                          pw(pw),
+                                                                                                          age(age),
+                                                                                                          gender(gender) {}
+
+User::User() {}
 
 const string &User::getName() const {
     return name;
@@ -44,18 +65,6 @@ void User::unFriended(User* amiguis) {
     }
 }
 
-User::User(const string &name, const string &username, const string &pw, int age, const string &gender) : name(name),
-                                                                                                          username(
-                                                                                                                  username),
-                                                                                                          pw(pw),
-                                                                                                          age(age),
-                                                                                                          gender(gender) {
-    vector<User*> amiguis;
-    contacts = amiguis;
-    vector<string> ints;
-    interests = ints;
-}
-
 const string &User::getUsername() const {
     return username;
 }
@@ -88,4 +97,48 @@ string User::toString() {
     string tostring;
     tostring = getName() + " ("+std::to_string(getAge())+" / "+getGender()+" / "+getUsername() + ")";
     return tostring;
+}
+
+void User::write(ofstream & out) {
+    int size = getName().size();
+    out.write(reinterpret_cast<char*>(&size), sizeof(int));
+    out.write(getName().data(), size);
+
+    size = getGender().size();
+    out.write(reinterpret_cast<char*>(&size), sizeof(int));
+    out.write(getGender().data(), size);
+
+    size = getUsername().size();
+    out.write(reinterpret_cast<char*>(&size), sizeof(int));
+    out.write(getUsername().data(), size);
+
+
+    size = getPw().size();
+    out.write(reinterpret_cast<char*>(&size), sizeof(int));
+    out.write(getPw().data(), size);
+    out.write(reinterpret_cast<char*>(&age), sizeof(int));
+}
+
+
+
+void User::read(ifstream& in) {
+    int size;
+    in.read(reinterpret_cast<char*>(&size), sizeof(int));
+    char nameBuffer[size+1];
+    in.read(nameBuffer, size);
+    nameBuffer[size] = 0;
+
+    name = nameBuffer;
+    in.read(reinterpret_cast<char*>(&size), sizeof(int));
+    char numBuffer[size+1];
+    in.read(numBuffer, size);
+    numBuffer[size] = 0;
+    gender = numBuffer;
+    in.read(reinterpret_cast<char*>(&size), sizeof(int));
+    char carreraBuffer[size+1];
+    in.read(carreraBuffer, size);
+    carreraBuffer[size] = 0;
+    username = carreraBuffer;
+    in.read(reinterpret_cast<char*>(&age), sizeof(int));
+
 }

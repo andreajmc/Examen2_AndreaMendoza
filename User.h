@@ -11,6 +11,10 @@ using std::string;
 #include <vector>
 using std::vector;
 
+#include <fstream>
+using std::ifstream;
+using std::ofstream;
+
 class User {
 private:
     string name;
@@ -23,7 +27,12 @@ private:
 
 public:
 
+    User(const string &name, const string &username, const string &pw, int age, const string &gender,
+         const vector<string> &interests);
+
     User(const string &name, const string &username, const string &pw, int age, const string &gender);
+
+    User();
 
     const string &getName() const;
 
@@ -63,6 +72,8 @@ public:
 
     void setInterests(const vector<string> &interests);
 
+    void write(ofstream&);
+    void read(ifstream&);
 };
 
 

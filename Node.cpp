@@ -10,9 +10,9 @@ Node::Node() {
     next= nullptr;
 }
 
-Node::Node(User *) {
-    this->data=data;
-    next=0;
+Node::Node(User* user) {
+    data = user;
+    next = nullptr;
 }
 
 User* Node::getData() {
