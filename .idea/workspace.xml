@@ -12,15 +12,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f11e6bae-856d-4ee6-9a98-128f04b2fc51" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LinkedList.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LinkedList.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Node.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Node.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/User.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/User.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,10 +27,11 @@
     <session id="-1712024875">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
+          <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.31" value="1" />
           <entry key="project.open.time.4" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -56,13 +50,13 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Makefile" value="338" />
-          <entry key="cpp" value="5341" />
+          <entry key="cpp" value="5348" />
           <entry key="h" value="711" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="ObjectiveC" value="6052" />
+          <entry key="ObjectiveC" value="6059" />
           <entry key="PLAIN_TEXT" value="338" />
         </counts>
       </usages-collector>
@@ -78,8 +72,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="53" column="16" selection-start-line="53" selection-start-column="16" selection-end-line="53" selection-end-column="16" />
+            <state>
+              <caret column="17" selection-start-column="17" selection-end-column="17" />
               <folding>
                 <element signature="e#113#130#0" expanded="true" />
               </folding>
@@ -91,7 +85,7 @@
         <entry file="file://$PROJECT_DIR$/Makefile">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="51">
-              <caret line="3" column="23" lean-forward="true" selection-start-column="43" selection-end-line="3" selection-end-column="23" />
+              <caret line="3" column="23" selection-start-column="43" selection-end-line="3" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -126,8 +120,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/User.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="52" column="26" lean-forward="true" selection-start-line="52" selection-start-column="26" selection-end-line="52" selection-end-column="26" />
+            <state relative-caret-position="884">
+              <caret line="52" column="26" selection-start-line="52" selection-start-column="26" selection-end-line="52" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -135,7 +129,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/User.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="109">
+            <state relative-caret-position="1003">
               <caret line="59" column="22" selection-start-line="59" selection-start-column="22" selection-end-line="59" selection-end-column="22" />
             </state>
           </provider>
@@ -196,7 +190,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -208,10 +201,12 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
@@ -255,18 +250,19 @@
       <option name="presentableId" value="Default" />
       <updated>1544814218175</updated>
       <workItem from="1544814221493" duration="19360000" />
-      <workItem from="1544833711788" duration="1225000" />
+      <workItem from="1544833711788" duration="1560000" />
+      <workItem from="1544842577653" duration="24000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20585000" />
+    <option name="totallyTimeSpent" value="20944000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="718" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19318181" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19621213" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -322,6 +318,13 @@
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/Makefile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="23" selection-start-column="43" selection-end-line="3" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/LinkedList.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -343,6 +346,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/User.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="884">
+          <caret line="52" column="26" selection-start-line="52" selection-start-column="26" selection-end-line="52" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/User.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1003">
+          <caret line="59" column="22" selection-start-line="59" selection-start-column="22" selection-end-line="59" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/LinkedList.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -353,31 +370,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Makefile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="23" lean-forward="true" selection-start-column="43" selection-end-line="3" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/User.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="59" column="22" selection-start-line="59" selection-start-column="22" selection-end-line="59" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/User.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="52" column="26" lean-forward="true" selection-start-line="52" selection-start-column="26" selection-end-line="52" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="53" column="16" selection-start-line="53" selection-start-column="16" selection-end-line="53" selection-end-column="16" />
+        <state>
+          <caret column="17" selection-start-column="17" selection-end-column="17" />
           <folding>
             <element signature="e#113#130#0" expanded="true" />
           </folding>
