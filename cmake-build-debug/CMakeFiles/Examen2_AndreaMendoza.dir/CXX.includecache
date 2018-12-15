@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/andrea/Desktop/Examen2_AndreaMendoza/LinkedList.h
+Node.h
+/home/andrea/Desktop/Examen2_AndreaMendoza/Node.h
+User.h
+/home/andrea/Desktop/Examen2_AndreaMendoza/User.h
+
+/home/andrea/Desktop/Examen2_AndreaMendoza/Node.h
+User.h
+/home/andrea/Desktop/Examen2_AndreaMendoza/User.h
+
+/home/andrea/Desktop/Examen2_AndreaMendoza/User.h
+string
+-
+vector
+-
+
+/home/andrea/Desktop/Examen2_AndreaMendoza/main.cpp
+iostream
+-
+string
+-
+fstream
+-
+vector
+-
+string
+-
+LinkedList.h
+/home/andrea/Desktop/Examen2_AndreaMendoza/LinkedList.h
+

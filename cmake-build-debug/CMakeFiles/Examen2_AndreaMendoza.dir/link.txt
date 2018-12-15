@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/Examen2_AndreaMendoza.dir/main.cpp.o CMakeFiles/Examen2_AndreaMendoza.dir/User.cpp.o CMakeFiles/Examen2_AndreaMendoza.dir/LinkedList.cpp.o CMakeFiles/Examen2_AndreaMendoza.dir/Node.cpp.o  -o Examen2_AndreaMendoza 
